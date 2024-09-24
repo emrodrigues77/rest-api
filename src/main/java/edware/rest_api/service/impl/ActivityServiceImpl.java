@@ -25,6 +25,7 @@ public class ActivityServiceImpl implements ActivityService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Activity findById(Long id) {
         return this.activityRepository.findById(id).orElseThrow(() -> new NotFoundException("Activity not found."));
     }
@@ -36,6 +37,7 @@ public class ActivityServiceImpl implements ActivityService {
     }
 
     @Override
+    @Transactional
     public Activity update(Long id, Activity entity) {
         Activity dbActivity = this.findById(id);
 
@@ -49,6 +51,7 @@ public class ActivityServiceImpl implements ActivityService {
     }
 
     @Override
+    @Transactional
     public void delete(Long id) {
         Activity dbActivity = this.findById(id);
         this.activityRepository.delete(dbActivity);

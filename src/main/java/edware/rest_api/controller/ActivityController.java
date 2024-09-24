@@ -19,7 +19,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/activities")
 @Tag(name = "Activities Controller", description = "RESTful API for managing activities.")
-public record  ActivityController(ActivityService activityService) {
+public record ActivityController(ActivityService activityService) {
 
     @GetMapping
     @Operation(summary = "Get all activities", description = "Get a list of all activities")
